@@ -1,0 +1,31 @@
+{
+  "name": "finalcoderhouse",
+  "version": "1.0.0",
+  "description": "The National",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/styles.scss css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mayrayamin@github.com/mayrayamin/FinalCoderhouse.git"
+  },
+  "keywords": [
+    "thenational"
+  ],
+  "author": "mayrayamin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayrayamin/FinalCoderhouse/issues"
+  },
+  "homepage": "https://github.com/mayrayamin/FinalCoderhouse#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.17.4"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

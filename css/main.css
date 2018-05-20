@@ -1,0 +1,271 @@
+a {
+  text-decoration: none;
+  color: black; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  font-family: 'PT Sans', sans-serif; }
+
+body {
+  background-color: white; }
+
+main {
+  padding-top: 4.6rem;
+  overflow-y: auto; }
+
+/* imagen home */
+#imghome {
+  width: 100%; }
+
+header {
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  align-items: center; }
+  header h1 {
+    margin-left: auto;
+    font-family: "roboto mono", sans-serif;
+    font-weight: 400;
+    font-size: 2rem; }
+
+a:hover {
+  color: #cf6676; }
+
+#menuToggle {
+  display: block;
+  position: fixed;
+  top: 1.3rem;
+  left: 1rem;
+  z-index: 11;
+  -webkit-user-select: none;
+  user-select: none; }
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+  -webkit-touch-callout: none; }
+
+/*
+  * Just a quick hamburger
+  */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: black;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%; }
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%; }
+
+/* 
+  * Transform all the slices of hamburger
+  * into a crossmark.
+  */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323; }
+
+/*
+  * But let's hide the middle one.
+  */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2); }
+
+/*
+  * Ohyeah and the last one should go the other direction
+  */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px); }
+
+/*
+  * Make this absolute positioned
+  * at the top left of the screen
+  */
+#menu {
+  position: absolute;
+  width: calc(100vw + 50px);
+  margin: -100px 0 0 -50px;
+  padding: 125px 30px 50px 50px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+
+#menu li {
+  padding: 10px 0;
+  font-family: "roboto mono", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  font-size: 1.5rem;
+  display: block;
+  position: relative;
+  width: 100%; }
+
+/*
+  * And let's slide it in from the left
+  */
+#menuToggle input:checked ~ ul {
+  transform: none; }
+
+/* Mobile Styles */
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body {
+    background-color: #F5CF8E;
+    /* Yellow */ } }
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  body {
+    background-color: #B2D6FF;
+    /* Blue */ } }
+
+/* HISTORIA */
+#history {
+  margin: 2rem 1rem 2rem 1rem;
+  padding: 0 3rem; }
+  #history p {
+    font-size: 2rem;
+    text-align: justify;
+    font-style: italic; }
+
+/* Escuchar */
+.button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  margin: 5rem 10rem 5rem 10rem;
+  border: 0;
+  background: transparent;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  flex-wrap: wrap; }
+  .button:hover {
+    background: rgba(100, 0, 0, 0.03); }
+  .button__horizontal, .button__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform .8s ease;
+    will-change: transform; }
+    .button__horizontal::before, .button__vertical::before {
+      content: '';
+      position: absolute;
+      border: inherit; }
+  .button__horizontal {
+    --vertical-offset: calc(var(--offset) * -1);
+    border-top: var(--border-size) solid currentcolor;
+    border-bottom: var(--border-size) solid currentcolor; }
+    .button__horizontal::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--vertical-offset) * -1);
+      right: calc(var(--vertical-offset) * -1); }
+  .button:hover .button__horizontal {
+    transform: scaleX(0); }
+  .button__vertical {
+    --horizontal-offset: calc(var(--offset) * -1);
+    border-left: var(--border-size) solid currentcolor;
+    border-right: var(--border-size) solid currentcolor; }
+    .button__vertical::before {
+      top: calc(var(--horizontal-offset) * -1);
+      bottom: calc(var(--horizontal-offset) * -1);
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size)); }
+  .button:hover .button__vertical {
+    transform: scaleY(0); }
+
+/* INTEGRANTES */
+.columna {
+  width: 100%;
+  display: inline-block;
+  flex-wrap: wrap;
+  align-items: center; }
+  .columna img {
+    width: 100%;
+    transition: all 0.5s ease-in-out; }
+    .columna img:hover {
+      transform: scale(0.8);
+      transition: all 0.5s ease-in-out; }
+      .columna img:hover h4 {
+        color: #F9AFCC; }
+
+h4 {
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: normal;
+  text-align: center;
+  transition: all 0.5s linear 0.5s; }
+
+h5 {
+  font-size: 1rem;
+  padding: 0.1rem 0;
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
+  text-align: center; }
+
+/* CONTACTO */
+#contacto {
+  padding: 3rem;
+  width: 100%; }
+  #contacto form > * + * {
+    margin-top: 1rem; }
+  #contacto input, #contacto textarea {
+    border: 1px solid #808080;
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    width: 100%; }
+    #contacto input::placeholder, #contacto textarea::placeholder {
+      color: grey; }
+  #contacto textarea {
+    height: 10rem; }
+  #contacto [type="submit"] {
+    border: 1px solid #808080;
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    height: 45px;
+    width: 25%;
+    text-align: center;
+    color: grey; }
