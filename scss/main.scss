@@ -10,7 +10,7 @@
     }
 }
 
-/* Escuchar */
+/* ESCUCHAR */
 .button {
 	
 	--offset: 10px;
@@ -23,7 +23,8 @@
 	border: 0;
 	background: transparent;
 	color: black;
-	text-transform: uppercase;
+    text-transform: uppercase;
+    font-family: "roboto mono", sans-serif;
 	letter-spacing: .25em;
 	outline: none;
 	cursor: pointer;
@@ -129,9 +130,14 @@ h5 {
 
 
 /* CONTACTO */
+
 #contacto {
     padding: 3rem;
     width: 100%;
+
+    h2 {
+        visibility: hidden;
+    }
 
     form {
         & > * + * {

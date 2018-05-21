@@ -1,11 +1,10 @@
-a {
-  text-decoration: none;
-  color: black; }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
+  * a {
+    text-decoration: none;
+    color: black; }
 
 html {
   font-size: 62.5%;
@@ -57,14 +56,9 @@ a:hover {
   left: -5px;
   cursor: pointer;
   opacity: 0;
-  /* hide this */
   z-index: 2;
-  /* and place it over the hamburger */
   -webkit-touch-callout: none; }
 
-/*
-  * Just a quick hamburger
-  */
 #menuToggle span {
   display: block;
   width: 33px;
@@ -82,32 +76,18 @@ a:hover {
 #menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%; }
 
-/* 
-  * Transform all the slices of hamburger
-  * into a crossmark.
-  */
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323; }
 
-/*
-  * But let's hide the middle one.
-  */
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2); }
 
-/*
-  * Ohyeah and the last one should go the other direction
-  */
 #menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px); }
 
-/*
-  * Make this absolute positioned
-  * at the top left of the screen
-  */
 #menu {
   position: absolute;
   width: calc(100vw + 50px);
@@ -116,7 +96,6 @@ a:hover {
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
@@ -132,24 +111,39 @@ a:hover {
   position: relative;
   width: 100%; }
 
-/*
-  * And let's slide it in from the left
-  */
 #menuToggle input:checked ~ ul {
   transform: none; }
 
 /* Mobile Styles */
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
-  body {
-    background-color: #F5CF8E;
-    /* Yellow */ } }
+  .columna {
+    width: 20% !important;
+    float: left;
+    padding: 0.3rem;
+    box-sizing: border-box; }
+  #listen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+  #history article p {
+    font-size: 1.5rem; } }
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
-  body {
-    background-color: #B2D6FF;
-    /* Blue */ } }
+  .columna {
+    width: 20% !important;
+    float: left;
+    padding: 0.3rem;
+    box-sizing: border-box; }
+  #listen {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    #listen .button {
+      width: 40rem; }
+  #history article p {
+    font-size: 1.5rem; } }
 
 /* HISTORIA */
 #history {
@@ -160,7 +154,7 @@ a:hover {
     text-align: justify;
     font-style: italic; }
 
-/* Escuchar */
+/* ESCUCHAR */
 .button {
   --offset: 10px;
   --border-size: 2px;
@@ -172,6 +166,7 @@ a:hover {
   background: transparent;
   color: black;
   text-transform: uppercase;
+  font-family: "roboto mono", sans-serif;
   letter-spacing: .25em;
   outline: none;
   cursor: pointer;
@@ -248,6 +243,8 @@ h5 {
 #contacto {
   padding: 3rem;
   width: 100%; }
+  #contacto h2 {
+    visibility: hidden; }
   #contacto form > * + * {
     margin-top: 1rem; }
   #contacto input, #contacto textarea {

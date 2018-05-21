@@ -1,21 +1,57 @@
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
-	body {
-	//   background-color: #F09A9D; /* Red */
-	}
   }
   
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
-	body {
-	  background-color: #F5CF8E; /* Yellow */
+	.columna {
+        width: 20% !important;
+        float: left;
+        padding: 0.3rem;
+        box-sizing: border-box;
+    }
+
+	#listen {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	#history {
+		article{
+			p {
+				font-size: 1.5rem;
+			}
+		}
 	}
   }
 
   /* Desktop Styles */
   @media only screen and (min-width: 961px) {
-	body {
-	  background-color: #B2D6FF; /* Blue */
+
+    .columna {
+        width: 20% !important;
+        float: left;
+        padding: 0.3rem;
+        box-sizing: border-box;
+    }
+
+	#listen {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		.button {
+			width: 40rem;
+		}
 	}
-  }
-  
+
+	#history {
+		article{
+			p {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+
+}
